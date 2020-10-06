@@ -45,7 +45,7 @@ async def _8ball(ctx, *, question): #it can now take multiple arguments
 @commands.has_permissions(manage_messages=True)
 async def clear(ctx, amount = 5):
     if (amount <= 0):
-        await ctx.send("Are you trying to break me? Don't make me laugh you retard")
+        await ctx.send("Nice try.")
     else:
         await ctx.channel.purge(limit = amount + 1)
 
