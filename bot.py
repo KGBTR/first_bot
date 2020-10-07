@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import random
-from os import environ
+import os
 
 from discord.ext.commands.core import has_permissions
 
