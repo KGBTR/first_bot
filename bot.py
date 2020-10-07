@@ -8,10 +8,25 @@ from discord.ext.commands.core import has_permissions
 intents = discord.Intents(messages = True, guilds = True, reactions = True, members = True, presences = True)
 client = commands.Bot(command_prefix = '-', intents = intents)
 
+# Events
+
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game("-help"))
     print("Bot is ready.")
+
+@client.event
+async def on_message(message):
+    try:
+        if "🥴" in message.content:
+            await message.add_reaction("🥴")
+        if message.content == "sa":
+            await message.channel.send("cami mi lan burası orospu çocuğu")
+    except:
+        return
+    await client.process_commands(message) #it is necessary if you want to use your commands at the same time with on_message func
+
+# Commands
 
 @client.command(aliases = ["8ball", "8b"]) #all of this strings can be used to invoke the below function(_8ball)
 async def _8ball(ctx, *, question): #it can now take multiple arguments 
