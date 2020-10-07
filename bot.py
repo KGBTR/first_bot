@@ -10,6 +10,7 @@ client = commands.Bot(command_prefix = '-', intents = intents)
 
 @client.event
 async def on_ready():
+    await client.change_presence(status=discord.Status.online, activity=discord.Game("-help"))
     print("Bot is ready.")
 
 @client.command(aliases = ["8ball", "8b"]) #all of this strings can be used to invoke the below function(_8ball)
