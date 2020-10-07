@@ -12,6 +12,10 @@ class Example(commands.Cog):
     async def on_ready(self):
         print("extension has loaded.")
 
+    @commands.Cog.listener()
+    async def on_member_join(self, ctx, member):
+        await ctx.send(763374313256255489, f"Welcome {member.mention}!")
+
     # Commands
 
     @commands.command()
