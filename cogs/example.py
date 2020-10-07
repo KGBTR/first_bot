@@ -13,9 +13,13 @@ class Example(commands.Cog):
         print("extension has loaded.")
 
     @commands.Cog.listener()
-    async def on_member_join(self, ctx, member):
-        await ctx.send(763374313256255489, f"Welcome {member.mention}!")
+    async def on_member_join(self, member):
+        await self.client.get_channel("761588662320234516").send(f"{member.mention} has joined the server.")
 
+    @commands.Cog.listener()
+    async def on_member_remove(self, member):
+        await self.client.get_channel("761588662320234516").send(f"{member.mention} has left the server.")
+    
     # Commands
 
     @commands.command()
