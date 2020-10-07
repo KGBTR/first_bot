@@ -11,14 +11,6 @@ class Example(commands.Cog):
     @commands.Cog.listener() #this is our function decorator for within a cog
     async def on_ready(self):
         print("extension has loaded.")
-
-    @commands.Cog.listener()
-    async def on_member_join(self, member):
-        await self.client.send_message(f"{member.mention} has joined the server.")
-
-    @commands.Cog.listener()
-    async def on_member_remove(self, member):
-        await self.client.send_message(f"{member.mention} has left the server.")
     
     # Commands
 
