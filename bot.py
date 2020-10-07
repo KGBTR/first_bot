@@ -12,10 +12,6 @@ client = commands.Bot(command_prefix = '-', intents = intents)
 async def on_ready():
     print("Bot is ready.")
 
-@client.command() #make sure you have that pharanteses after .command
-async def ping(ctx):
-    await ctx.send(f"Pong! {round(client.latency * 1000)}ms") #multiply by a thousand because client.latency return seconds, not miliseconds.
-
 @client.command(aliases = ["8ball", "8b"]) #all of this strings can be used to invoke the below function(_8ball)
 async def _8ball(ctx, *, question): #it can now take multiple arguments 
     responses = ["It is certain.",
@@ -83,5 +79,16 @@ async def unban(ctx, *, member):
             await ctx.send(f"Unbanned {user.mention}")
             return
 
+@client.command()
+async def load(ctx, extension): #it is going to load our extension
+    client.load_extension(f"cogs.{extension}")
+
+@client.command()
+async def unload(ctx, extension):
+    client.unload_extension(f"cogs.{extension}")
+
+for filename in os.listdir("./cogs"): #it is going to go through all the files in this cogs folder and check if there is a py file, if there is load it like a cog
+    if filename.endswith("py"):
+        client.load_extension(f"cogs.{filename[:-3]}")
 
 client.run(os.environ["DISCORD_TOKEN"])
