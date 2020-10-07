@@ -87,6 +87,11 @@ async def load(ctx, extension): #it is going to load our extension
 async def unload(ctx, extension):
     client.unload_extension(f"cogs.{extension}")
 
+@client.command()
+async def reload(ctx, extension):
+    client.unload_extension(f"cogs.{extension}")
+    client.load_extension(f"cogs.{extension}")
+
 for filename in os.listdir("./cogs"): #it is going to go through all the files in this cogs folder and check if there is a py file, if there is load it like a cog
     if filename.endswith("py"):
         client.load_extension(f"cogs.{filename[:-3]}")
