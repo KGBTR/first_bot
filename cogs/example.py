@@ -14,11 +14,11 @@ class Example(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        await self.client.get_channel("761588662320234516").send(f"{member.mention} has joined the server.")
+        await self.client.send(f"{member.mention} has joined the server.")
 
     @commands.Cog.listener()
     async def on_member_remove(self, member):
-        await self.client.get_channel("761588662320234516").send(f"{member.mention} has left the server.")
+        await self.client.send(f"{member.mention} has left the server.")
     
     # Commands
 
