@@ -20,5 +20,4 @@ async def on_ready():
         client.load_extension(cog)
     return
 
-#client.run(environ["DISCORD_TOKEN"])
-client.run("NzYyNzY4NjMwMzQ5MDM3NTk5.X3t9pQ.cAXJwcX-cMh95k2bD3zTKCP0M1Y")
+client.run(environ["DISCORD_TOKEN"])
