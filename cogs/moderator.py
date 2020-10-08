@@ -14,11 +14,11 @@ class Moderator(commands.Cog):
         else:
             await ctx.channel.purge(limit = amount+1)
     
-    @commands.command(name="kick", description="kicks mentioned user", usage="@user <reason(optional)>")
+    @commands.command(name="kick", description="kicks mentioned user", aliases=["kick"],usage="@user <reason(optional)>")
     @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, member : discord.Member, *, reason):
+    async def kick(self, ctx, member : discord.Member, *, reason=None):
         await member.kick(reason=reason)
-        await ctx.send(f"Kicked {member.mention}!")
+        await ctx.send(f"Kicked {member.mention}")
 
     @commands.command(name="ban", description="bans mentioned user", usage="@user <reason(optional)>")
     @commands.has_permissions(ban_members=True)

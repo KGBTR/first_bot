@@ -16,11 +16,10 @@ class Fun(commands.Cog):
                 await message.add_reaction("🥴")
             if message.content == "sa":
                 await message.channel.send("cami mi lan burası orospu çocuğu")
-            if "gerçek mi" or "gercek mi" or "gercekmi" or "gerçekmi" in message.content:
+            if [i for i in ["gercek mi", "gerçek mi", "gercekmi", "gerçekmi"] if i in message.content]:
                 await message.channel.send("amına kodumun çocuğu gerizekalı amcık sence Hulk gerçek olabilir mi?")
         except:
             return
-        await self.client.process_commands(message) #it is necessary if you want to use your commands at the same time with on_message func
     
     # Commands
 
