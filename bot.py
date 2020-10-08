@@ -33,7 +33,7 @@ async def on_member_join(member):
 
 @client.event
 async def on_member_remove(member):
-    channel = client.get_channel763690414615560212()
+    channel = client.get_channel(763690414615560212)
     await channel.send(f"{member.mention} has joined the server!")
 
 # Commands
