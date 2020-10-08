@@ -26,6 +26,16 @@ async def on_message(message):
         return
     await client.process_commands(message) #it is necessary if you want to use your commands at the same time with on_message func
 
+@client.event
+async def on_member_join(member):
+    channel = client.get_channel(763690414615560212)
+    await channel.send(f"{member.mention} has joined the server!")
+
+@client.event
+async def on_member_remove(member):
+    channel = client.get_channel763690414615560212()
+    await channel.send(f"{member.mention} has joined the server!")
+
 # Commands
 
 @client.command(aliases = ["8ball", "8b"]) #all of this strings can be used to invoke the below function(_8ball)
@@ -64,7 +74,7 @@ async def clear(ctx, amount = 5):
 @client.command(aliases = ["dick", "yarrak", "pp"])
 async def penis(ctx, member : discord.Member=None):
     if (member == None):
-        await ctx.send(f"{ctx.message.author.mention}'s' penis:\n8{random.randint(0,11) * '='}D")
+        await ctx.send(f"{ctx.message.author.mention}'s penis:\n8{random.randint(0,11) * '='}D")
 
     else:
         await ctx.send(f"{member.mention}'s penis:\n8{random.randint(0,11) * '='}D")
