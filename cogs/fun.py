@@ -12,7 +12,9 @@ class Fun(commands.Cog):
     @commands.Cog.listener() #this is our function decorator for within a cog
     async def on_message(self, message):
         try:
-            if "🥴" in message.content:
+            if [i for i in ["hmm", "acaba", "düşünüyorum", "dusunuyorum"] if i in message.content]:
+                await message.add_reaction("🤔")
+            if [i for i in ["🥴", "Woozy", "woozy"]if i in message.content]:
                 await message.add_reaction("🥴")
             if message.content == "sa":
                 await message.channel.send("cami mi lan burası orospu çocuğu")
