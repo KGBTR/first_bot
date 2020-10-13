@@ -8,13 +8,15 @@ class Basic(commands.Cog):
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        channel = self.client.get_channel(763690414615560212)
-        await channel.send(f"{member.mention} has joined the server!")
+        if (self.client.guild.name == "Bot Testing"):
+            channel = self.client.get_channel(763690414615560212)
+            await channel.send(f"{member.mention} has joined the server!")
     
     @commands.Cog.listener()
     async def on_member_remove(self, member):
-        channel = self.client.get_channel(763690414615560212)
-        await channel.send(f"{member.mention} has left the server!")
+        if (self.client.guild.name == "Bot Testing"):
+            channel = self.client.get_channel(763690414615560212)
+            await channel.send(f"{member.mention} has left the server!")
 
     # Commands
 
